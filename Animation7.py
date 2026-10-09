@@ -128,6 +128,9 @@ def draw_score(score):
 
 
 
+
+
+
 #key variable for score and obstacles
 INCREMENT_SCORE = pygame.USEREVENT + 1
 pygame.time.set_timer(INCREMENT_SCORE, 2000)
@@ -141,10 +144,13 @@ pygame.mixer.music.play(-1)
 
 #main game loop
 
+
+
 #run = True
 def main():
     run = True
     score = 0
+
 
     #time variables
     latestTime = pygame.time.get_ticks()
@@ -202,6 +208,7 @@ def main():
                 allSprites.add(obstacle)
                 obstacles.add(obstacle)
 
+
         #update sprites
         player.update()
         obstacles.update()
@@ -229,3 +236,4 @@ if __name__ == "__main__":
     main()
 
 ################ADDED RANDOM INTERVALS, ANIMATION DISPLAY COMPLETE
+
