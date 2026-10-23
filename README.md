@@ -1,80 +1,92 @@
 # Rapid Runner
 
-Rapid Runner is an endless-runner game I built in Python for coursework between November 2024 and April 2025. I developed the whole program myself, including the Flet sign-in screen, the Pygame main menu and the animated game screen.
+Rapid Runner is an endless-runner game I built in Python as an individual coursework project, developed from November 2024 to April 2025.
 
-## Why I built it
+The program combines a Flet sign-in screen, a Pygame menu system and the main endless-runner game. I programmed each part myself and used the project to learn how a larger Python program can be split across multiple files and classes while still working as one application.
 
-The project was part of my coursework and gave me the chance to build a larger program made up of several files, classes and features rather than one small script.
+**Python · Pygame · Flet**
 
-I wanted the different parts of the program to work together as one complete flow: sign in, open the menu and then start the game.
+## Screenshots
 
-## What I built
+<p align="center">
+  <img src="screenshots/sign-in.jpg" width="49%" alt="Rapid Runner sign-in screen">
+  <img src="screenshots/main-menu.jpg" width="49%" alt="Rapid Runner main menu">
+</p>
 
-The project has three main parts:
+<p align="center">
+  <img src="screenshots/controls.jpg" width="49%" alt="Rapid Runner controls screen">
+  <img src="screenshots/gameplay.jpg" width="49%" alt="Rapid Runner gameplay">
+</p>
 
-- a Flet sign-in screen with basic input validation
-- a Pygame main menu with start, options and controls screens
-- the endless-runner game itself, including animation, movement, obstacles, scoring, health and collision handling
+The sign-in screen uses input validation before allowing the player to continue. From the main menu, the player can start the game, open the options menu or exit. The options menu includes a music button that increases the volume, an information button that displays the controls, and a return button that goes back to the main menu.
 
-I programmed all of these parts myself.
+The gameplay screen combines the player animation, scrolling city background, randomly generated obstacles, score and health bar.
 
-## Main functionality
+## Main features
 
-- Sign-in form built with Flet
-- Main menu with start, options and controls screens
+- Flet sign-in screen with username and password validation
+- Main menu with Start, Options and Exit
+- Controls/information screen
 - Running and jumping sprite animations
-- Left and right movement
-- Scrolling background that gradually increases in speed
-- Randomly generated obstacles
-- Collision detection and a health bar
+- Left and right player movement
+- Endless scrolling background
+- Random obstacle generation
+- Collision detection and health system
 - Score tracking
-- Audio controls in the menu
+- Background music and menu volume control
 
-## Technologies
+## How it works
 
-- Python
-- Pygame
-- Flet
+The project is split into several Python files rather than being written as one large script.
+
+`Executing_File.py` controls the main menu and links the different parts of the program together. `Validation3.py` contains the Flet sign-in interface. `Animation7.py` contains the main game loop, player animation, movement, background scrolling, scoring and collision behaviour.
+
+The smaller classes handle individual parts of the game, including reusable menu buttons, obstacles and the health bar.
 
 ## The main challenge
 
-The animation/game section was the most difficult part of the project.
+The animation section was the most difficult part of the project.
 
-The challenge was not one individual feature. It was getting several classes, files and game systems to work together without breaking each other. The player animation, movement, obstacles, health, collisions, score, background scrolling and menu all had to work as part of the same program.
+There was not one individual feature that caused the most difficulty. The main challenge was combining several classes, files and game systems without causing errors elsewhere in the program. Player animation, movement, obstacles, collisions, health, score, background scrolling and the menu all had to work together as one program.
 
-Working through those integration problems was one of the main parts of the project and helped me become more comfortable debugging a program spread across multiple Python files.
+Working through those integration problems gave me much more practical experience with debugging larger programs.
 
 ## What I learned
 
-Rapid Runner was where I gained most of my early practical experience with Pygame and Flet.
+This project was where I gained most of my early practical experience with Pygame and Flet. It also helped me become more comfortable with:
 
-Through building it, I became more comfortable with:
-
-- Pygame's game loop and event system
-- sprite animation and movement
-- classes and objects across multiple files
+- game loops and Pygame events
+- sprite animation
+- classes and objects
+- working across multiple Python files
 - collision detection
+- user input
 - timing and score updates
-- handling user input
-- building interfaces with Flet
-- combining separate parts of a program into one working application
-- debugging issues caused by interactions between different files and features
+- building a simple interface with Flet
+- debugging interactions between different parts of a program
 
-## How to run it
+## Running the project
 
-Install the dependencies:
+The original project was built using an older Flet API. To run the original sign-in code, Flet 0.24.1 can be used alongside Pygame:
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
 ```
 
-Then run:
+Activate the virtual environment, then install:
+
+```bash
+python -m pip install pygame
+python -m pip install "flet==0.24.1"
+```
+
+Run the application with:
 
 ```bash
 python Executing_File.py
 ```
 
-The original project expects soundtrack files inside a `Soundtracks/` folder. Those audio files are not included in this public repository because I do not have clear licensing information for them. As a result, the original program will need suitable local/replacement audio files before it can run exactly as written.
+The original code also expects soundtrack files inside a `Soundtracks/` folder. Those audio files are not included in this public repository because I do not have clear licensing information for them, so suitable local or replacement audio files are required for the original execution path.
 
 ## Project structure
 
@@ -89,21 +101,22 @@ Buttons/                 Menu button images
 Run_Animation/           Running animation frames
 Jump_Animation/          Jumping animation frames
 Game_Backgrounds/        Game background
+screenshots/             Screenshots used in this README
 ```
 
 ## Current limitations
 
-This repository contains the original coursework code, including some decisions I would change now.
+This repository keeps the original coursework implementation, including some decisions I would change now.
 
-The sign-in screen prints the entered username/password and writes them to `name_password.txt` in plain text. It should therefore only be treated as a coursework prototype and should never be used with real credentials.
+The sign-in prototype prints the entered username and password and writes them to `name_password.txt` in plain text. It should not be used with real credentials.
 
-There are also areas of the game loop and restart/pause behaviour that could be improved if I continued developing the project.
+There are also areas I would improve in the game loop, particularly the pause/restart behaviour and obstacle spawning.
 
-## Possible next steps
+## What I would improve next
 
-- Remove plaintext password storage
-- Replace the prototype sign-in with proper authentication or remove it
-- Improve the game restart and pause behaviour
-- Improve obstacle spawning
-- Add automated tests for non-graphical logic
-- Replace the omitted soundtrack files with clearly licensed audio
+- remove plaintext password storage
+- replace or remove the prototype sign-in approach
+- improve pause and restart behaviour
+- improve obstacle spawning
+- use clearly licensed replacement audio
+- add tests for non-graphical game logic
